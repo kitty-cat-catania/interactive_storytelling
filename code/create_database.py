@@ -4,7 +4,7 @@ import pandas as pd
 
 
 # connect to database 
-conn = sqlite3.connect('map.db')
+conn = sqlite3.connect('migration.db')
 c = conn.cursor()
 print ("Opened database successfully")
 
