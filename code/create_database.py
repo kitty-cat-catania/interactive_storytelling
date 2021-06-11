@@ -1,26 +1,25 @@
 # Import Dependencies 
-from flask import Flask
 import sqlite3
-import os
-# Create an instance of Flask app
-app = Flask(__name__)
+import pandas as pd
 
+
+# connect to database 
 conn = sqlite3.connect('map.db')
+c = conn.cursor()
 print ("Opened database successfully")
 
+# Drop Tables
+c.execute('drop table if exists a5_reasons;')
+c.execute('drop table if exists a6_distance;')
+c.execute('drop table if exists trends;')
 
-
-
-conn = sqlite3.connect('map.db')
-print ("Opened database successfully")
-
-
-conn.execute('''CREATE TABLE a5_reasons (
+# Create Tables 
+c.execute('''CREATE TABLE IF NOT EXISTS a5_reasons (
 mobility_period VARCHAR(30) NOT NULL,
 movers_total INT,
 family_marital_status_change INT,
 family_establish_own_household INT,
-family_other INT,
+family_otlsr INT,
 job_new INT,
 job_seeking INT,
 job_better_commute INT,
@@ -61,7 +60,7 @@ other_natural_disaster_per REAL,
 other_other_per REAL);''')
 print ("Table created successfully")
 
-conn.execute('''CREATE TABLE a6_distance (
+c.execute('''CREATE TABLE IF NOT EXISTS a6_distance (
 mobility_period VARCHAR(30) NOT NULL,
 movers_total_new_county INT,
 movers_new_county_under_50miles INT,
@@ -76,7 +75,7 @@ movers_new_county_over_500miles_per REAL);''')
 print ("Table created successfully")
 
 
-conn.execute('''CREATE TABLE trends (
+c.execute('''CREATE TABLE IF NOT EXISTS trends (
 mobility_period VARCHAR(30) NOT NULL,
 period_duration_years INT,
 origin VARCHAR(30) NOT NULL,
@@ -85,11 +84,26 @@ migration INT,
 source VARCHAR(30) NOT NULL);''' )
 print("Table created successfully")
 
+#load csvs to tables  
+a5_reasons = pd.read_csv('datasets/census_csvs/tab-a-1.csv')
+a5_reasons.to_sql('a5_reasons', conn, if_exists="replace")
 
-conn = sqlite3.connect('map.db')
-print ("Opened database successfully")
+a6_distance = pd.read_csv('datasets/census_csvs/tab-a-6.csv')
+a6_distance.to_sql('a6_distance', conn, if_exists='replace')
 
+trends = pd.read_csv('datasets/census_csvs/state_migration_flows_table-3s.csv')
+trends.to_sql('trends', conn, if_exists='replace')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+c.execute("SELECT name FROM sqlite_master WHERE type='table'")
+print(c.fetchall())
 
+c.execute("SELECT * FROM a5_reasons LIMIT 5")
+print(c.fetchall())
+
+c.execute("SELECT * FROM a6_distance LIMIT 5")
+print(c.fetchall())
+
+c.execute("SELECT * FROM trends LIMIT 5")
+print(c.fetchall())
+
+conn.close()

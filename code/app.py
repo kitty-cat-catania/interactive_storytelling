@@ -1,6 +1,4 @@
-from flask import Flask
-app = Flask(__name__)
+### Write Flask App Below 
 
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
+import sqlite3
+conn = sqlite3.connect("map.db")
