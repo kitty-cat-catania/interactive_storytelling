@@ -238,7 +238,7 @@ trends.to_sql('trends', conn, if_exists='replace')
 a1_movers = pd.read_csv('datasets/census_csvs/tab-a-5.csv')
 a1_movers.to_sql('a1_movers', conn, if_exists="replace")
 
-state_to_state = pd.read_csv('datasets/census_csvs/xxx.csv')
+state_to_state = pd.read_csv('datasets/census_csvs/state_migration_flows_appendix.csv')
 state_to_sate.to_sql('state_to_state', conn, if_exists="replace")
 
 c.execute("SELECT name FROM sqlite_master WHERE type='table'")
