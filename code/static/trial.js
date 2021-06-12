@@ -51,12 +51,12 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
     var leftAxis = d3.axisLeft(yScale);
 
     var line1 = d3.line()
-        .x(data => xScale(data.mobility_start))
-        .y(data => yScale(data.family_comb_per));
+        .x(data => xScale(data.job_new))
+        .y(data => yScale(data.job_seeking));
 
     var line2 = d3.line()
-        .x(data => xScale(data.mobility_start))
-        .y(data => yScale(data.Job_comb_per));
+        .x(data => xScale(data.job_new))
+        .y(data => yScale(data.job_seeking));
 
     /*chartGroup.append("path")
         .attr("fill", "none")
