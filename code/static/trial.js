@@ -1,3 +1,5 @@
+console.log ("Hello world")
+d3.json ("/trends").then(data => console.log(data))
 var svgWidth = 560;
 var svgHeight = 460;
 
@@ -22,7 +24,7 @@ var svg = d3
 var chartGroup = svg.append("g")
     .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
-d3.csv("../datasets/census_csvs/tab-a-5.csv").then(function (moveReasonData) {
+d3.json("/a5_reasons").then(function (moveReasonData) {
     console.log(moveReasonData);
 
     //Cast values as numbers for each piece of data 
