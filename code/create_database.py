@@ -60,7 +60,7 @@ other_college_per REAL,
 other_climate_per REAL,
 other_health_per REAL,
 other_natural_disaster_per REAL,
-other_other_per REAL);''')
+other_other_per REAL)''')
 print ("Table created successfully")
 
 c.execute('''CREATE TABLE IF NOT EXISTS a6_distance (
@@ -106,67 +106,7 @@ movers_same_county_per REAL,
 movers_total_new_county_per REAL,
 movers_new_county_same_state_per REAL,
 movers_new_county_new_state_per REAL,
-movers_from_abroad_per REAL)' CREATE TABLE a5_reasons (
-mobility_period VARCHAR(30) NOT NULL,
-movers_total INT,
-family_marital_status_change INT,
-family_establish_own_household INT,
-family_other INT,
-job_new INT,
-job_seeking INT,
-job_better_commute INT,
-job_retired INT,
-job_other INT,
-housing_ownership INT,
-housing_upsize INT,
-housing_better_neighborhood INT,
-housing_cheaper INT,
-housing_eviction INT,
-housing_other INT,
-other_relationship INT,
-other_college INT,
-other_climate INT,
-other_health INT,
-other_natural_disaster INT,
-other_other INT,
-movers_total_per REAL,
-family_marital_status_change_per REAL,
-family_establish_own_household_per REAL,
-family_other_per REAL,
-job_new_per REAL,
-job_seeking_per REAL,
-job_better_commute_per REAL,
-job_retired_per REAL,
-job_other_per REAL,
-housing_ownership_per REAL,
-housing_upsize_per REAL,
-housing_better_neighborhood_per REAL,
-housing_cheaper_per REAL,
-housing_eviction_per REAL,
-housing_other_per REAL,
-other_relationship_per REAL,
-other_college_per REAL,
-other_climate_per REAL,
-other_health_per REAL,
-other_natural_disaster_per REAL,
-other_other_per REAL)' CREATE TABLE a6_distance (
-mobility_period VARCHAR(30) NOT NULL,
-movers_total_new_county INT,
-movers_new_county_under_50miles INT,
-movers_new_county_50_199miles INT,
-movers_new_county_200_499miles INT,
-movers_new_county_over_500miles INT,
-movers_total_new_county_per REAL,
-movers_new_county_under_50miles_per REAL,
-movers_new_county_50_199miles_per REAL,
-movers_new_county_200_499miles_per REAL,
-movers_new_county_over_500miles_per REAL)' CREATE TABLE trends (
-mobility_period VARCHAR(30) NOT NULL,
-period_duration_years INT,
-origin VARCHAR(30) NOT NULL,
-destination VARCHAR(30) NOT NULL,
-migration INT,
-source VARCHAR(30) NOT NULL);''' )
+movers_from_abroad_per REAL);''')
 print("Table created successfully")
 
 c.execute('''CREATE TABLE IF NOT EXISTS state_to_state (
@@ -239,7 +179,7 @@ a1_movers = pd.read_csv('datasets/census_csvs/tab-a-5.csv')
 a1_movers.to_sql('a1_movers', conn, if_exists="replace")
 
 state_to_state = pd.read_csv('datasets/census_csvs/state_migration_flows_appendix.csv')
-state_to_sate.to_sql('state_to_state', conn, if_exists="replace")
+state_to_state.to_sql('state_to_state', conn, if_exists="replace")
 
 c.execute("SELECT name FROM sqlite_master WHERE type='table'")
 print(c.fetchall())
