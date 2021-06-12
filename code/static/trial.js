@@ -1,32 +1,26 @@
-var trace1 = {
-    x: [1,2,3,4],
-    y: [10, 7, 13,17],
-    type: 'scatter',
-    mode: 'lines',
-    name: 'Family'
+var svgWidth = 560;
+var svgHeight = 460;
+
+var chartMargin = {
+    top: 30,
+    right: 30, 
+    bottom: 30,
+    left: 40
 };
 
-var trace2 = {
-    x:[1,2,3,4],
-    y: [16, 5, 11, 9],
-    type: 'scatter',
-    mode: 'lines', 
-    name: 'Job'
-};
+var chartWidth = svgWidth-chartMargin.left - chartMargin.right;
+var chartHeight = svgHeight - chartMargin.top - chartMargin.bottom;
 
-var data = [trace1, trace2];
 
-var layout = {
-    title: "Reason for Move",
-    xaxis: {
-        title: 'Year'
-    },
-    yaxis: {
-        title: "People"
-    }
-};
+//select body and append svg element with height and width set
+var svg = d3
+    .select("#svg-area")
+    .append("svg")
+    .attr("height", svgHeight)
+    .attr("width", svgWidth);
 
-Plotly.newPlot('multi-line', data, layout);
+var chartGroup = svg.append("g")
+    .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
 d3.csv("../datasets/census_csvs/tab-a-5.csv").then(function (moveReasonData) {
     console.log(moveReasonData);
@@ -34,7 +28,60 @@ d3.csv("../datasets/census_csvs/tab-a-5.csv").then(function (moveReasonData) {
     //Cast values as numbers for each piece of data 
     moveReasonData.forEach(function (data) {
         data.family_other = +data.family_other;
+        data.Job_comb_per = parseFloat(data.Job_comb_per);
+        data.family_comb_per = parseFloat(data.family_comb_per);
+        data.mobility_start = + data.mobility_start;
     });
 
     console.log(moveReasonData);
+
+    //create scale for independent x coords
+    var xScale = d3.scaleLinear()
+        .domain(d3.extent(moveReasonData, d => d.mobility_start))
+        .range([0, svgWidth]);
+
+    //create y scale
+    var yScale = d3.scaleLinear()
+        .domain([0.0, 100.0])
+        .range([svgHeight, 0]);
+
+    var bottomAxis = d3.axisBottom(xScale);
+    var leftAxis = d3.axisLeft(yScale);
+
+    var line1 = d3.line()
+        .x(data => xScale(data.mobility_start))
+        .y(data => yScale(data.family_comb_per));
+
+    var line2 = d3.line()
+        .x(data => xScale(data.mobility_start))
+        .y(data => yScale(data.Job_comb_per));
+
+    /*chartGroup.append("path")
+        .attr("fill", "none")
+        .attr("stroke", "blue")
+        .attr("stroke-width", "1")
+        .attr("d", makeLine(moveReasonData));*/
+
+    chartGroup.append("path")
+        .classed("line", "true")
+        .attr("stroke", "black")
+        .attr("fill", "none")
+        .attr("d", line1(moveReasonData));
+
+    chartGroup
+        .data([moveReasonData])
+        .append("path")
+        .attr("stroke", "blue")
+        .attr("fill", "none")
+        .attr("d", line2)
+        .classed("line", true);
+
+    chartGroup.append("g")
+        .classed("axis", true)
+        .call(leftAxis);
+
+    chartGroup.append("g")
+        .classed("axis", true)
+        .attr("transform", `translate(0, ${chartHeight})`)
+        .call(bottomAxis);
 });
