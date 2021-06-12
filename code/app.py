@@ -77,6 +77,19 @@ def list():
       data.append({ desc[i][0]: v for (i,v) in enumerate(row) })
     
    return json.dumps(data)
+
+@app.route('/state_to_state')
+def list():
+   con = sqlite3.connect("migration.db")
+   cur = con.cursor()
+   cur.execute("select * from state_to_state")
+   rows = cur.fetchall()
+   desc = cur.description
+   data = []
+   for row in rows:
+      data.append({ desc[i][0]: v for (i,v) in enumerate(row) })
+    
+   return json.dumps(data)
    #render_template("list.html",rows = data)
 
 
