@@ -1,8 +1,8 @@
 d3.select("#choropleth_vis").text("TESTING CHOROPLETH")
 var myMap = L.map("choropleth_vis", {
-    center: [37.8, -96],
+    center: [37.8, -95],
     zoom: 4
-  });
+});
   
   // Adding tile layer
   L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {

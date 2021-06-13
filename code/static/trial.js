@@ -87,3 +87,21 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .attr("transform", `translate(0, ${chartHeight})`)
         .call(bottomAxis);
 });
+
+function init () {
+    d3.json ("/state_to_state").then(function (getStates) {
+        var alabamaTest = getStates[0];
+        console.log(alabamaTest);
+        var states = (Object.keys(alabamaTest));
+        console.log(states);
+
+        var ddButton = d3.select("#state");
+        var ddOptions = states.forEach(function(state) {
+            var idOption = ddButton.append("option");
+            idOption.text(state);
+            idOption.attr("value", state);
+        })
+    })
+}
+
+init();
