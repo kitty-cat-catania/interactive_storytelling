@@ -1,0 +1,1 @@
+d3.select("#bubblemap_vis").text("TESTING BUBBLEMAP")
