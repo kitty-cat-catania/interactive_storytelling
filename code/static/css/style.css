@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 #choropleth_vis {
     width: 700px;
     height: 700px;
 }
+=======
+html body {
+	background-color: rgba(100,200,255,.30);
+    
+    }
+>>>>>>> c9c5ee08f2198a26f7975c0a8e35efd5a613c4c8
