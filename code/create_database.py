@@ -169,7 +169,7 @@ wyoming int);''')
 print ("Table created successfully")
 
 #load csvs to tables  
-a5_reasons = pd.read_csv('datasets/census_csvs/tab-a-1.csv')
+a5_reasons = pd.read_csv('datasets/census_csvs/tab-a-5.csv')
 a5_reasons.to_sql('a5_reasons', conn, if_exists="replace")
 
 a6_distance = pd.read_csv('datasets/census_csvs/tab-a-6.csv')
@@ -178,7 +178,7 @@ a6_distance.to_sql('a6_distance', conn, if_exists='replace')
 trends = pd.read_csv('datasets/census_csvs/state_migration_flows_table-3s.csv')
 trends.to_sql('trends', conn, if_exists='replace')
 
-a1_movers = pd.read_csv('datasets/census_csvs/tab-a-5.csv')
+a1_movers = pd.read_csv('datasets/census_csvs/tab-a-1.csv')
 a1_movers.to_sql('a1_movers', conn, if_exists="replace")
 
 state_to_state = pd.read_csv('datasets/census_csvs/state_migration_flows_appendix.csv')

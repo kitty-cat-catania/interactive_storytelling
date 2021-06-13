@@ -13,8 +13,10 @@ def trends():
    con = sqlite3.connect("migration.db")
    cur = con.cursor()
    cur.execute("select * from trends")
-   rows = cur.fetchall()
    desc = cur.description
+   print(desc)
+   rows = cur.fetchall()
+
    data = []
    for row in rows:
       data.append({ desc[i][0]: v for (i,v) in enumerate(row) })
