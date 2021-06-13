@@ -25,3 +25,22 @@ var myMap = L.map("choropleth_vis", {
    var config = {mapboxAccessToken: "pk.eyJ1IjoiZ2FicmllbGxlY2F0YW5pYSIsImEiOiJja3AwMDV6dmUwYWJpMndrZ29mbW03ZHJsIn0.R15J5L37Zr5lwmkjXiosJg"};
    
    Plotly.newPlot('choropleth_vis', data, layout, config);
+
+
+   d3.json("/state_to_state").then(function (stateData) {
+       console.log(stateData);
+       alTest = stateData[0];
+       alabamaMove = Object.values(alTest);
+       console.log(alabamaMove);
+       trial = alabamaMove.splice(7,1);
+       alabamaMove[0]=0;
+       console.log(alabamaMove);
+       var newData = [{
+        type: "choroplethmapbox", name: "US states", geojson: "https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/us-states.json", locations: [ "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY" ],
+       z: alabamaMove,
+       zmin: 25, zmax: 20000, colorbar: {y: 0, yanchor: "bottom", title: {text: "US states", side: "right"}}}
+        ];
+       Plotly.newPlot('choropleth_vis', newData, layout, config);
+
+
+   });
