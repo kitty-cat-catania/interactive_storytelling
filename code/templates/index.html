@@ -11,30 +11,67 @@
 <!-- load Bootstrap  -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
 <!--Load D3-->
 <script src="https://d3js.org/d3.v5.min.js"></script>
 
-<!-- load external files below -->
-<link rel="stylesheet" href="/static/css/style.css">
-<script type="text/javascript-file.js" src="../static/js/plot.js"></script> 
+<!--Load Ploty-->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script src ="./static/trial.js"></script>
+
+<!-- load local files below -->
+<link rel="stylesheet" href="/static/css/style.css"> 
+<!-- <script src ="../static/trial.js"></script>
+<script src = "../static/js/choropleth.js"></script>
+<script src = "../static/js/multiline.js"></script>
+<script src = "../static/js/bubblemap"></script> -->
+
 </head>
 
 
 <body>
+
+    
 <h1>Human Migration Across the United States</h1>
-    <h2>Graph Below</h2>
+<p>in this project: we tracked human migration across the United States.</p>
+
+
+
+<h2>Choropleth Map</h2>
+
+    
+    <div id="choropleth_vis"></div>
+    <!-- Put plot Here-->  
+    <script src ="../static/js/choropleth.js"></script>
+        
+    <p>This is a paragraph</p>  
+    <p><b>This is a bold paragraph</p></b>
+        
+<h2>Multiline Graph</h2>
     <div id ="trialstuff"></div>
     <script src ="../static/trial.js"></script>
-    <div id="multi-line"></div>
-    <!-- Put plot Here-->        
+    <div id="multi-line_viz"></div>        
     <p>This is a paragraph</p>  
     <p><b>This is a bold paragraph</p></b>
 
-    <label for="state">Choose a State:</label>
-    <select name="state" id="state">
-      <option value="hawaii">Hawaii</option>
-      <option value="do some script">not sure how this works</option>
-    </select>
+
+
+<h2>Bubble Map</h2>
+    
+    <script src ="../static/js/bubblemap.js"></script>
+    <div id="bubblemap_vis"></div>
+    <!-- Put plot Here-->  
+    
+    <p>This is a paragraph</p>  
+    <p><b>This is a bold paragraph</p></b>
+    
+
+<!-- Dropdown Menu -->
+<label for="state">Choose a State:</label>
+<select name="state" id="state">
+    <option value="hawaii">Hawaii</option>
+    <option value="do some script">not sure how this works</option>
+</select>
+<p>I think we can write Javascript in the plots. that are controlled by this </p>
+
+</body>
 </html>
