@@ -2,10 +2,7 @@
     width: 700px;
     height: 700px;
 }
-html body {
-	background-color: rgba(100,200,255,.30);
-    
-    }
+
 canvas{
       /* Set rules to fill background */
   min-height: 100%;
