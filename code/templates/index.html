@@ -74,9 +74,13 @@ crossorigin=""/>
 
 
 <h2>Bubble Map</h2>
-    
+    <!-- Dropdown Menu -->
+    <label for="time">Choose a Period:</label>
+    <select name="timePer" id="time" onchange="optionChanged(this.value)">
+    </select> 
     <div id="bubblemap_vis"></div>
-    <!-- Put plot Here-->  
+    <!-- Put plot Here--> 
+    
     <script src ="../static/js/bubblemap.js"></script>
     <p><b>This is a bold paragraph</p></b>
     <p>This is a paragraph</p>  
