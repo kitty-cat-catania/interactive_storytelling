@@ -41,7 +41,7 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
     var toolTip = d3.select("body")
         .append("div")
         .attr("id", "tooltip")
-        .attr("style", 'position: absolute; opacity: 0;');
+        .attr("style", 'position: absolute; opacity: .5;');
 
     //select body and append svg element with height and width set
     var svg = d3
@@ -90,13 +90,13 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
 
     
 
-
+    //append blackline
     chartGroup.append("path")
         .classed("line", "true")
         .attr("stroke", "black")
         .attr("fill", "none")
         .attr("d", line1(moveReasonData));
-
+    //append blue line
     chartGroup
         .data([moveReasonData])
         .append("path")
@@ -106,7 +106,7 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .classed("line", true);
 
 
-    //housing cheaper line 
+    //append housing cheaper line 
     chartGroup
         .data([moveReasonData])
         .append("path")
@@ -114,7 +114,7 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .attr("fill", "none")
         .attr("d", line5)
         .classed("line", true);
-
+    //append purple line
     chartGroup
         .data([moveReasonData])
         .append("path")
@@ -129,18 +129,15 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .on("mouseout", function (d) {
             d3.select("#tooltip").style("opacity", 0)
         });
-
+    // append left Axis
     chartGroup.append("g")
         .classed("axis", true)
-        
         .call(leftAxis);
-
+    // append bottom axis
     chartGroup.append("g")
         .classed("axis", true)
         .attr("transform", `translate(0, ${chartHeight})`)
         .call(bottomAxis);
-    
-       
 
 
     var legendSpace = svgWidth/5;
@@ -148,11 +145,24 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
     svg.append("text")
         .attr("x", chartWidth - (chartMargin.right/2)) // spacing
         .attr("y", chartMargin.bottom*2)
-        .attr("class", "legend")    // style the legend
+        .attr("class", "legend")
+        .text("meh")    // style the legend
         //.style("fill", function() { // dynamic colours
             //return d.color = color(d.key); })
-        .text("meh");
-    
-      
+            svg.append("text")
+            .attr("x", chartWidth - (chartMargin.right/2)) // spacing
+            .attr("y", chartMargin.bottom*1.5)
+            .attr("class", "legend")
+            .text("meh2")
+            svg.append("text")
+            .attr("x", chartWidth - (chartMargin.right/2)) // spacing
+            .attr("y", chartMargin.bottom*1)
+            .attr("class", "legend")
+            .text("meh3") 
+            svg.append("text")
+            .attr("x", chartWidth - (chartMargin.right/2)) // spacing
+            .attr("y", chartMargin.bottom*.5)
+            .attr("class", "legend")
+            .text("meh4")  
 });
 
