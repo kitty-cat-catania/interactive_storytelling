@@ -1,5 +1,6 @@
 body{
     font-family:Algerian;
+    font-size: large;
 }
 #choropleth_vis {
     position: relative;
