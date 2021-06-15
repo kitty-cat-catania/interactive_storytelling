@@ -1,16 +1,13 @@
 #choropleth_vis {
-    width: 700px;
-    height: 700px;
+    width: 500px;
+    height: 500px;
 }
 
 #bubblemap_vis {
-    width: 700px;
-    height: 700px;
+    width: 500px;
+    height: 500px;
 }
-#multiline_vis{
-    width: 700px;
-    height: 700px;
-}
+
 #defaultCanvas0 {
       /* Set rules to fill background */
   min-height: 100%;

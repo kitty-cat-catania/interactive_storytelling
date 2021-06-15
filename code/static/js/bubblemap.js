@@ -42,7 +42,9 @@ d3.json ("/a1_movers").then(function (move_data) {
         title: 'Distance Moved',
         yaxis: {
             title: 'People (Thousands)'
-        }
+        },
+        plot_bgcolor:"rgba(0,0,0,0)",
+        paper_bgcolor:"rgba(0,0,0,0)"
     };
 
     Plotly.newPlot('bubblemap_vis', data, layout);
@@ -94,8 +96,12 @@ function optionChanged() {
         var layout = {
             title: 'Distance Moved',
             yaxis: {
-                title: 'People (Thousands)'
-            }
+                title: 'People (Thousands)',
+                
+            },
+            
+                
+          
         };
         Plotly.newPlot('bubblemap_vis', [trace], layout);
 
