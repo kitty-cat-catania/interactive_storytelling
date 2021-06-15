@@ -1,4 +1,3 @@
-d3.select("#multiline_vis").text("TESTING MULTILINE")
 var svgWidth = 560;
 var svgHeight = 460;
 
