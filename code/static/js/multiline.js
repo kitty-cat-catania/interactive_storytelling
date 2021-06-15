@@ -23,8 +23,15 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         var first = d.mobility_period;
         var end = first.substring(0,4);
         d.mobility_period = end;
-        var house = d.housing_better_neighborhood_per + d.housing_cheaper_per;
+        var house = (d.housing_better_neighborhood_per + d.housing_cheaper_per
+                    + d.housing_eviction_per + d.housing_other_per + d.housing_ownership_per
+                    + d.housing_upsize_per);
         d.housing_cheaper_per = house;
+        var other = (d.other_climate_per + d.other_college_per + d.other_health_per 
+                    + d.other_natural_disaster_per + d.other_other_per + 
+                    d.other_relationship_per)
+        d.other_other_per = other;
+        console.log(house);
     });
     
     
@@ -53,7 +60,7 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
 
     //create y scale
     var yScale = d3.scaleLinear()
-        .domain([0.0, 40.0])
+        .domain([0.0, 60.0])
         .range([chartHeight, 0]);
 
     var bottomAxis = d3.axisBottom(xScale);
@@ -69,11 +76,9 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
 
     var line3 = d3.line()
         .x(data => xScale((data.mobility_period)))
-        .y(data => yScale(data.other_college_per));
+        .y(data => yScale(data.other_other_per));
 
-    var line4 = d3.line()
-        .x(data => xScale((data.mobility_period)))
-        .y(data => yScale(data.housing_better_neighborhood_per));
+    
 
     var line5 = d3.line()
         .x(data => xScale((data.mobility_period)))
@@ -98,14 +103,6 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .attr("d", line2)
         .classed("line", true);
 
-    //housing better neighborhood line 
-    chartGroup
-        .data([moveReasonData])
-        .append("path")
-        .attr("stroke", "orange")
-        .attr("fill", "none")
-        .attr("d", line4)
-        .classed("line", true);
 
     //housing cheaper line 
     chartGroup
@@ -144,8 +141,8 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
     var legendSpace = svgWidth/5;
     
     svg.append("text")
-        .attr("x", (legendSpace/2)+legendSpace) // spacing
-        .attr("y", chartHeight + (chartMargin.bottom/2)+ 5)
+        .attr("x", chartWidth - (chartMargin.right/2)) // spacing
+        .attr("y", chartMargin.bottom*2)
         .attr("class", "legend")    // style the legend
         //.style("fill", function() { // dynamic colours
             //return d.color = color(d.key); })
