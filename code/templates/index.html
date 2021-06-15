@@ -62,7 +62,9 @@ crossorigin=""/>
 <br>
 
 
+<div class="row">
 
+    <div class="col-sm"><!-- div for graph-->
 <h2>Choropleth Map</h2>
     <div id="choropleth_vis"></div>
     <!-- Put plot Here-->  
@@ -71,18 +73,20 @@ crossorigin=""/>
     <p><b>This is a bold paragraph</p></b>
     <p>This is a paragraph</p>  
     
-        
+        </div>
+        <div class="col-sm"><!-- div for graph-->
 <h2>Multiline Graph</h2>
     <div id="multiline_vis"></div>  
     <script src = "../static/js/multiline.js"></script>      
     <p><b>This is a bold paragraph about multilines</p></b>
     <p>This is a paragraph about multilines</p>  
     
+</div>
+</div><!--Closing row-->
 
-
-
+<div class="row">
+<div class="col-sm"><!-- div for graph-->
 <h2>Bar Chart</h2>
-    <!-- Dropdown Menu -->
     <label for="time">Choose a Period:</label>
     <select name="timePer" id="time" onchange="optionChanged(this.value)">
     </select> 
@@ -92,11 +96,17 @@ crossorigin=""/>
     <script src ="../static/js/bubblemap.js"></script>
     <p><b>This is a bold paragraph</p></b>
     <p>This is a paragraph</p>  
-    
-    
+    </div>
 
-
+    <div class="col-sm">
+<h2>gabbie's new chart </h2>
+    <div id="linechart"></div>
+    <script src="../static/js/linechart.js"></script>
+    <p><b>This is a line Chart</b></p>
 </div>
+
+</div><!-- closing div for row. Don't touch-->
+</div><!-- Closing div for boostrap page container-->
 
 
 </body>

@@ -7,6 +7,10 @@
     width: 700px;
     height: 700px;
 }
+#multiline_vis{
+    width: 700px;
+    height: 700px;
+}
 #defaultCanvas0 {
       /* Set rules to fill background */
   min-height: 100%;
