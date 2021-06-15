@@ -63,8 +63,10 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .domain([0.0, 60.0])
         .range([chartHeight, 0]);
 
-    var bottomAxis = d3.axisBottom(xScale);
-    var leftAxis = d3.axisLeft(yScale);
+    var bottomAxis = d3.axisBottom(xScale)
+    var leftAxis = d3.axisLeft(yScale)
+    
+                             
 
     var line1 = d3.line()
         .x(data => xScale((data.mobility_period)))
@@ -138,6 +140,9 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .attr("transform", `translate(0, ${chartHeight})`)
         .call(bottomAxis);
     
+       
+
+
     var legendSpace = svgWidth/5;
     
     svg.append("text")
@@ -148,4 +153,6 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
             //return d.color = color(d.key); })
         .text("meh");
     
+      
 });
+

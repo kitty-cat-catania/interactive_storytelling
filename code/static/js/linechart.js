@@ -25,12 +25,18 @@ d3.json("/a1_movers").then(function (lineData) {
     var layout = {
         title: 'Total Movers in the US Over Time',
         xaxis: {
-            title: 'Year'
+            title: 'Year',
+            showline:true,
+            linewidth: 1,
+            gridcolor: 'rgba(0,0,0,.3)'
         },
         yaxis: {
-            title: 'Total Movers'
+            title: 'Total Movers',
+            showline:true,
+            linewidth: 1,
+            gridcolor: 'rgba(0,0,0,.3)'
         },
-        
+
         plot_bgcolor:"rgba(0,0,0,0)",
         paper_bgcolor:"rgba(0,0,0,0)"
     };

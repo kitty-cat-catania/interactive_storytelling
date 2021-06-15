@@ -41,7 +41,10 @@ d3.json ("/a1_movers").then(function (move_data) {
     var layout = {
         title: 'Distance Moved',
         yaxis: {
-            title: 'People (Thousands)'
+            title: 'People (Thousands)',
+            showline:true,
+            linewidth: 1,
+            gridcolor: 'rgba(0,0,0,.3)'
         },
         plot_bgcolor:"rgba(0,0,0,0)",
         paper_bgcolor:"rgba(0,0,0,0)"

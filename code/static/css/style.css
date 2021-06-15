@@ -31,3 +31,14 @@
 h4{
     text-decoration: underline;
 }
+
+
+  .grid line {
+    stroke: black;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+  }
+  
+  .grid path {
+    stroke-width: 1;
+  }
