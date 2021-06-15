@@ -54,23 +54,23 @@ crossorigin=""/>
 
 <br>
 
-<h4>Where are they from and where are they going?</h4>
-<h6><b>State to State Migration Flows: Period 2004-2005</h6></b>
-<p>Select destination state to see which states movers lived in one year prior.</p>  
 
-<!-- Dropdown Menu -->
-<label for="state">Destination State:</label>
-<select name="state" id="state" onchange="optionChanged(this.value)">
-</select>
-
-
-<br>
 
 
 <div class="row">
 
     <div class="col-sm"><!-- div for graph-->
-
+        <h4>Where are they from and where are they going?</h4>
+        <h6><b>State to State Migration Flows: Period 2004-2005</h6></b>
+        <p>Select destination state to see which states movers lived in one year prior.</p>  
+        
+        <!-- Dropdown Menu -->
+        <label for="state">Destination State:</label>
+        <select name="state" id="state" onchange="optionChanged(this.value)">
+        </select>
+        
+        
+        
     <div id="choropleth_vis"></div>
     <!-- Put plot Here-->  
     <script src ="../static/js/choropleth.js"></script>
