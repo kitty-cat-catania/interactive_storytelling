@@ -23,7 +23,10 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         var first = d.mobility_period;
         var end = first.substring(0,4);
         d.mobility_period = end;
+        var house = d.housing_better_neighborhood_per + d.housing_cheaper_per;
+        d.housing_cheaper_per = house;
     });
+    
     
     
     console.log(moveReasonData);
@@ -45,7 +48,7 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
 
     //create scale for independent x coords
     var xScale = d3.scaleBand()
-        .domain(d3.extent(moveReasonData, d => d.mobility_period)) 
+        .domain(moveReasonData.map(d => d.mobility_period)) 
         .range([0, chartWidth]);
 
     //create y scale
@@ -137,8 +140,15 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .classed("axis", true)
         .attr("transform", `translate(0, ${chartHeight})`)
         .call(bottomAxis);
-
     
-
+    var legendSpace = svgWidth/5;
+    
+    svg.append("text")
+        .attr("x", (legendSpace/2)+legendSpace) // spacing
+        .attr("y", chartHeight + (chartMargin.bottom/2)+ 5)
+        .attr("class", "legend")    // style the legend
+        //.style("fill", function() { // dynamic colours
+            //return d.color = color(d.key); })
+        .text("meh");
     
 });
