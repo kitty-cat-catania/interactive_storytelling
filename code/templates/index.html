@@ -52,50 +52,57 @@ crossorigin=""/>
 <h1>Human Migration Across the United States</h1>
 <p>In this project: we tracked human migration across the United States.</p>
 
+<br>
+
+<h4>Where are they from and where are they going?</h4>
+<h6><b>State to State Migration Flows: Period 2004-2005</h6></b>
+<p>Select destination state to see which states movers lived in one year prior.</p>  
 
 <!-- Dropdown Menu -->
-<label for="state">Choose a State:</label>
+<label for="state">Destination State:</label>
 <select name="state" id="state" onchange="optionChanged(this.value)">
 </select>
 
-<br>
+
 <br>
 
 
 <div class="row">
 
     <div class="col-sm"><!-- div for graph-->
-<h2>Choropleth Map</h2>
+
     <div id="choropleth_vis"></div>
     <!-- Put plot Here-->  
     <script src ="../static/js/choropleth.js"></script>
     
-    <p><b>This is a bold paragraph</p></b>
-    <p>This is a paragraph</p>  
+    <p><i>2005 American Community Survey (ACS)</p></i>
     
         </div>
         <div class="col-sm"><!-- div for graph-->
-<h2>Multiline Graph</h2>
+            <h4>Why are they moving?</h4>
+            <h6><b>Reasons for Move by Category: Period 1999-2019</h6></b>
+            
     <div id="multiline_vis"></div>  
     <script src = "../static/js/multiline.js"></script>      
-    <p><b>This is a bold paragraph about multilines</p></b>
-    <p>This is a paragraph about multilines</p>  
+    <p><i>U.S. Census Bureau, Current Population Survey, Annual Social and Economic Supplement 1999-2020</p></i>
     
 </div>
 </div><!--Closing row-->
 
 <div class="row">
 <div class="col-sm"><!-- div for graph-->
-<h2>Bar Chart</h2>
-    <label for="time">Choose a Period:</label>
+    <h4>How far did they go?</h4>
+    <h6><b>Annual Geographic Mobility Rates, By Type of Movement: Period 1948-2020</h6></b>
+
+    <label for="time">Select a Period:</label>
     <select name="timePer" id="time" onchange="optionChanged(this.value)">
     </select> 
     <div id="bubblemap_vis"></div>
     <!-- Put plot Here--> 
     
     <script src ="../static/js/bubblemap.js"></script>
-    <p><b>This is a bold paragraph</p></b>
-    <p>This is a paragraph</p>  
+    <p><i>U.S. Census Bureau, Current Population Survey, Annual Social and Economic Supplement 1948-2020</p></i>
+    
     </div>
 
     <div class="col-sm">
