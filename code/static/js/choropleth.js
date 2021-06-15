@@ -9,9 +9,10 @@
            style: "dark", 
            center: {lon: -110, lat: 50}, 
            zoom: 0.8}, 
+
            width: 600, 
            height: 400, 
-           margin: {t: 0, b: 0},
+           margin: {t: 0, b: 0,},
            plot_bgcolor:"rgba(0,0,0,0)",
            paper_bgcolor:"rgba(0,0,0,0)"
         };
@@ -66,7 +67,7 @@ function optionChanged() {
          z: selectedVals,
          zmin: 25, zmax: 20000, colorbar: {y: 0, yanchor: "bottom", title: {text: "US states", side: "right"}}}
           ];
-         Plotly.newPlot('choropleth_vis', newData, layout, config);
+        Plotly.newPlot('choropleth_vis', newData, layout, config);
 
     });
 }
