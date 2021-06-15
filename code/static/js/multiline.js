@@ -140,29 +140,64 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .call(bottomAxis);
 
 
-    var legendSpace = svgWidth/5;
+    //var legendSpace = svgWidth/5;
     
+    // append Legend Text
+    svg.append("text")
+    .attr("x", chartWidth - (chartMargin.right/2)) // spacing
+    .attr("y", chartMargin.bottom*.5)
+    .attr("class", "legend")
+    .text("meh")  
+    svg.append("text")
+    .attr("x", chartWidth - (chartMargin.right/2)) // spacing
+    .attr("y", chartMargin.bottom*1)
+    .attr("class", "legend")
+    .text("meh1") 
+    svg.append("text")
+    .attr("x", chartWidth - (chartMargin.right/2)) // spacing
+    .attr("y", chartMargin.bottom*1.5)
+    .attr("class", "legend")
+    .text("meh2")
     svg.append("text")
         .attr("x", chartWidth - (chartMargin.right/2)) // spacing
         .attr("y", chartMargin.bottom*2)
         .attr("class", "legend")
-        .text("meh")    // style the legend
+        .text("meh4")    // style the legend
         //.style("fill", function() { // dynamic colours
             //return d.color = color(d.key); })
-            svg.append("text")
-            .attr("x", chartWidth - (chartMargin.right/2)) // spacing
-            .attr("y", chartMargin.bottom*1.5)
-            .attr("class", "legend")
-            .text("meh2")
-            svg.append("text")
-            .attr("x", chartWidth - (chartMargin.right/2)) // spacing
-            .attr("y", chartMargin.bottom*1)
-            .attr("class", "legend")
-            .text("meh3") 
-            svg.append("text")
-            .attr("x", chartWidth - (chartMargin.right/2)) // spacing
-            .attr("y", chartMargin.bottom*.5)
-            .attr("class", "legend")
-            .text("meh4")  
+   
+
+    //append Legend rectangles
+    svg.append("rect")
+    .attr("x", chartWidth - (chartMargin.right/1)) // spacing
+    .attr("y", chartMargin.bottom*.2)
+    .attr("class", "legend")
+    .attr("height", 10)
+    .attr("width", 10)
+    .style("fill", "green")
+    svg.append("rect")
+    .attr("x", chartWidth - (chartMargin.right/1)) // spacing
+    .attr("y", chartMargin.bottom*.7)
+    .attr("class", "legend")
+    .attr("height", 10)
+    .attr("width", 10)
+    .style("fill", "black")
+    
+    svg.append("rect")
+    .attr("x", chartWidth - (chartMargin.right/1)) // spacing
+    .attr("y", chartMargin.bottom*1.2)
+    .attr("class", "legend")
+    .attr("height", 10)
+    .attr("width", 10)
+    .style("fill", "blue")
+    svg.append("rect")
+    .attr("x", chartWidth - (chartMargin.right/1)) // spacing
+    .attr("y", chartMargin.bottom*1.7)
+    .attr("class", "legend")
+    .attr("height", 10)
+    .attr("width", 10)
+    .style("fill", "purple")
+    
+            
 });
 
