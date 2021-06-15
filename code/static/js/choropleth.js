@@ -15,6 +15,8 @@
         var alabamaTest = getStates[0];
         console.log(alabamaTest);
         var states = (Object.keys(alabamaTest));
+        states.splice(53,1);
+        states.splice(7,1);
         console.log(states);
 
         var ddButton = d3.select("#state");
