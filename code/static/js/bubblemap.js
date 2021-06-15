@@ -33,6 +33,9 @@ d3.json ("/a1_movers").then(function (move_data) {
     var trace1 = {
         x: ['New State', 'New County', 'Same County'],
         y: [newState, newCounty, sameCounty],
+        marker:{
+            color: ['rgba(75,112,254,.6)', 'rgba(222,45,38,0.8)', 'rgba(255,150,104,.8)']
+          },
         type: 'bar'
     };
 
