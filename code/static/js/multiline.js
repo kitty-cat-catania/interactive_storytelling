@@ -90,13 +90,13 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
 
     
 
-    //append blackline
+    //append blackline -- family_comb_percent
     chartGroup.append("path")
         .classed("line", "true")
         .attr("stroke", "black")
         .attr("fill", "none")
         .attr("d", line1(moveReasonData));
-    //append blue line
+    //append blue line--job combined percent
     chartGroup
         .data([moveReasonData])
         .append("path")
@@ -106,7 +106,7 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .classed("line", true);
 
 
-    //append housing cheaper line 
+    //append housing combined percent line 
     chartGroup
         .data([moveReasonData])
         .append("path")
@@ -114,7 +114,7 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .attr("fill", "none")
         .attr("d", line5)
         .classed("line", true);
-    //append purple line
+    //append other combined percent line
     chartGroup
         .data([moveReasonData])
         .append("path")
@@ -137,7 +137,13 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
     chartGroup.append("g")
         .classed("axis", true)
         .attr("transform", `translate(0, ${chartHeight})`)
-        .call(bottomAxis);
+        .call(bottomAxis)
+        .selectAll("text")
+        .attr("y", 14)
+        .attr("x", 3)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(45)")
+        .style("text-anchor", "start");
 
 
     //var legendSpace = svgWidth/5;
@@ -147,22 +153,22 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
     .attr("x", chartWidth - (chartMargin.right/2)) // spacing
     .attr("y", chartMargin.bottom*.5)
     .attr("class", "legend")
-    .text("meh")  
+    .text("Housing")  
     svg.append("text")
     .attr("x", chartWidth - (chartMargin.right/2)) // spacing
     .attr("y", chartMargin.bottom*1)
     .attr("class", "legend")
-    .text("meh1") 
+    .text("Family") 
     svg.append("text")
     .attr("x", chartWidth - (chartMargin.right/2)) // spacing
     .attr("y", chartMargin.bottom*1.5)
     .attr("class", "legend")
-    .text("meh2")
+    .text("Job")
     svg.append("text")
         .attr("x", chartWidth - (chartMargin.right/2)) // spacing
         .attr("y", chartMargin.bottom*2)
         .attr("class", "legend")
-        .text("meh4")    // style the legend
+        .text("Other")    // style the legend
         //.style("fill", function() { // dynamic colours
             //return d.color = color(d.key); })
    
