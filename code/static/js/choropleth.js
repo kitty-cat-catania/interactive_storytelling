@@ -4,7 +4,17 @@
    zmin: 25, zmax: 280, colorbar: {y: 0, yanchor: "bottom", title: {text: "US states", side: "right"}}}
     ];
    
-   var layout = {mapbox: {style: "dark", center: {lon: -110, lat: 50}, zoom: 0.8}, width: 600, height: 400, margin: {t: 0, b: 0}};
+   var layout = {
+       mapbox: {
+           style: "dark", 
+           center: {lon: -110, lat: 50}, 
+           zoom: 0.8}, 
+           width: 600, 
+           height: 400, 
+           margin: {t: 0, b: 0},
+           plot_bgcolor:"rgba(0,0,0,0)",
+           paper_bgcolor:"rgba(0,0,0,0)"
+        };
    
    var config = {mapboxAccessToken: "pk.eyJ1IjoiZ2FicmllbGxlY2F0YW5pYSIsImEiOiJja3AwMDV6dmUwYWJpMndrZ29mbW03ZHJsIn0.R15J5L37Zr5lwmkjXiosJg"};
    

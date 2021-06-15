@@ -29,7 +29,10 @@ d3.json("/a1_movers").then(function (lineData) {
         },
         yaxis: {
             title: 'Total Movers'
-        }
+        },
+        
+        plot_bgcolor:"rgba(0,0,0,0)",
+        paper_bgcolor:"rgba(0,0,0,0)"
     };
 
     Plotly.newPlot('linechart', data, layout);
