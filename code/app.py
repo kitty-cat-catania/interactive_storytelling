@@ -40,7 +40,7 @@ def distance():
 def reasons():
    con = sqlite3.connect("migration.db")
    cur = con.cursor()
-   cur.execute("select * from a5_reasons")
+   cur.execute("select * from a5_reasons order by mobility_period")
    rows = cur.fetchall()
    desc = cur.description
    data = []
