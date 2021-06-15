@@ -1,6 +1,3 @@
-d3.select("#bubblemap_vis").text("TESTING BUBBLEMAP")
-
-
 function init () {
     d3.json ("/a1_movers").then(function (mobilData) {
         ddButton = d3.select("#time")

@@ -44,8 +44,8 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
     //create scale for independent x coords
-    var xScale = d3.scaleLinear()
-        .domain(d3.extent(moveReasonData, d => (d.mobility_start))) 
+    var xScale = d3.scaleBand()
+        .domain(d3.extent(moveReasonData, d => d.mobility_period)) 
         .range([0, chartWidth]);
 
     //create y scale
@@ -57,23 +57,23 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
     var leftAxis = d3.axisLeft(yScale);
 
     var line1 = d3.line()
-        .x(data => xScale((data.mobility_start)))
+        .x(data => xScale((data.mobility_period)))
         .y(data => yScale(data.family_comb_per));
 
     var line2 = d3.line()
-        .x(data => xScale((data.mobility_start)))
+        .x(data => xScale((data.mobility_period)))
         .y(data => yScale(data.Job_comb_per));
 
     var line3 = d3.line()
-        .x(data => xScale((data.mobility_start)))
+        .x(data => xScale((data.mobility_period)))
         .y(data => yScale(data.other_college_per));
 
     var line4 = d3.line()
-        .x(data => xScale((data.mobility_start)))
+        .x(data => xScale((data.mobility_period)))
         .y(data => yScale(data.housing_better_neighborhood_per));
 
     var line5 = d3.line()
-        .x(data => xScale((data.mobility_start)))
+        .x(data => xScale((data.mobility_period)))
         .y(data => yScale(data.housing_cheaper_per));
     
     var categories = (Object.keys(moveReasonData[0]));
