@@ -171,6 +171,14 @@ d3.json("/a5_reasons").then(function (moveReasonData) {
         .text("Other")    // style the legend
         //.style("fill", function() { // dynamic colours
             //return d.color = color(d.key); })
+
+    chartGroup.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - chartMargin.left )
+        .attr("x", 0 - (chartHeight*.8 ))
+        .attr("dy", "1em")
+        .attr("class", "axisText")
+        .text("Percentage of Movers (%)");
    
 
     //append Legend rectangles
